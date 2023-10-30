@@ -53,10 +53,10 @@
           {
             "Type": "TextArea",
             "Name": "textArea1",
-            "X": 63,
-            "Y": 158,
-            "Width": 174,
-            "Height": 82,
+            "X": 66,
+            "Y": 166,
+            "Width": 189,
+            "Height": 50,
             "TextId": "__SingleUse_F6SG",
             "TextRotation": "0",
             "Color": {
@@ -64,7 +64,11 @@
               "Green": 189,
               "Blue": 23
             },
-            "AutoSize": true
+            "Wildcard1": {
+              "TextId": "__SingleUse_CFLB",
+              "UseBuffer": true,
+              "BufferSize": 5
+            }
           }
         ],
         "Interactions": []

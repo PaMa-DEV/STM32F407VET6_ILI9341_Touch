@@ -6,11 +6,14 @@
   <Texts>
     <TextGroup Id="Group1" />
     <TextGroup Id="Unsorted">
-      <Text Id="__SingleUse_F6SG" Alignment="Left" TypographyId="Large">
-        <Translation Language="GB">Zaibisi&#10;</Translation>
+      <Text Id="__SingleUse_CFLB" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">0</Translation>
+      </Text>
+      <Text Id="__SingleUse_F6SG" Alignment="Left" TypographyId="Typography_00">
+        <Translation Language="GB">X= &lt;value&gt; $</Translation>
       </Text>
       <Text Id="__SingleUse_CZXO" Alignment="Center" TypographyId="Default">
-        <Translation Language="GB">New Text</Translation>
+        <Translation Language="GB">nu apasa</Translation>
       </Text>
     </TextGroup>
   </Texts>
@@ -18,5 +21,6 @@
     <Typography Id="Default" Font="verdana.ttf" Size="20" Bpp="4" Direction="LTR" FallbackCharacter="?" />
     <Typography Id="Large" Font="verdanab.ttf" Size="40" Bpp="4" Direction="LTR" FallbackCharacter="?" />
     <Typography Id="Small" Font="verdana.ttf" Size="10" Bpp="4" Direction="LTR" FallbackCharacter="?" />
+    <Typography Id="Typography_00" Font="verdana.ttf" Size="40" Bpp="4" Direction="LTR" FallbackCharacter="?" WildcardCharacterRanges="0-9" />
   </Typographies>
 </TextDatabase>

@@ -10,7 +10,7 @@
 #include <touchgfx/widgets/Box.hpp>
 #include <touchgfx/widgets/ToggleButton.hpp>
 #include <touchgfx/widgets/ButtonWithLabel.hpp>
-#include <touchgfx/widgets/TextArea.hpp>
+#include <touchgfx/widgets/TextAreaWithWildcard.hpp>
 
 class screenViewBase : public touchgfx::View<screenPresenter>
 {
@@ -31,7 +31,13 @@ protected:
     touchgfx::Box box1;
     touchgfx::ToggleButton toggleButton1;
     touchgfx::ButtonWithLabel buttonWithLabel1;
-    touchgfx::TextArea textArea1;
+    touchgfx::TextAreaWithOneWildcard textArea1;
+
+    /*
+     * Wildcard Buffers
+     */
+    static const uint16_t TEXTAREA1_SIZE = 5;
+    touchgfx::Unicode::UnicodeChar textArea1Buffer[TEXTAREA1_SIZE];
 
 private:
 

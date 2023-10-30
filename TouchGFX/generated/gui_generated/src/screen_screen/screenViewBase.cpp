@@ -30,9 +30,11 @@ screenViewBase::screenViewBase()
     buttonWithLabel1.setLabelColorPressed(touchgfx::Color::getColorFromRGB(255, 255, 255));
     add(buttonWithLabel1);
 
-    textArea1.setXY(63, 158);
+    textArea1.setPosition(66, 166, 189, 50);
     textArea1.setColor(touchgfx::Color::getColorFromRGB(254, 189, 23));
     textArea1.setLinespacing(0);
+    Unicode::snprintf(textArea1Buffer, TEXTAREA1_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_CFLB).getText());
+    textArea1.setWildcard(textArea1Buffer);
     textArea1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_F6SG));
     add(textArea1);
 }

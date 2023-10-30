@@ -11,7 +11,10 @@ public:
     virtual ~screenView() {}
     virtual void setupScreen();
     virtual void tearDownScreen();
+    virtual void handleTickEvent();
 protected:
+
+    uint16_t count=0;
 };
 
 #endif // SCREENVIEW_HPP
