@@ -36,7 +36,7 @@ extern "C" {
 
 /* Exported types ------------------------------------------------------------*/
 /* USER CODE BEGIN ET */
-
+extern uint32_t tim2_cnt;
 /* USER CODE END ET */
 
 /* Exported constants --------------------------------------------------------*/
@@ -63,6 +63,12 @@ void Error_Handler(void);
 #define KEY0_Pin GPIO_PIN_4
 #define KEY0_GPIO_Port GPIOE
 #define KEY0_EXTI_IRQn EXTI4_IRQn
+#define RE_CLK_Pin GPIO_PIN_0
+#define RE_CLK_GPIO_Port GPIOA
+#define RE_DAT_Pin GPIO_PIN_1
+#define RE_DAT_GPIO_Port GPIOA
+#define RE_SW_Pin GPIO_PIN_2
+#define RE_SW_GPIO_Port GPIOA
 #define LD2_Pin GPIO_PIN_6
 #define LD2_GPIO_Port GPIOA
 #define LD3_Pin GPIO_PIN_7

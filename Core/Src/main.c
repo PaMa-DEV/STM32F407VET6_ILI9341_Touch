@@ -19,11 +19,9 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "crc.h"
-/*#include "rtc.h"*/
 #include "spi.h"
 #include "tim.h"
 #include "usart.h"
-#include "usb_device.h"
 #include "gpio.h"
 #include "fsmc.h"
 #include "app_touchgfx.h"
@@ -33,7 +31,7 @@
 #include <stdio.h>
 #include "ili9341_simple.h"
 #include "TouchGFX_DataTransfer.h"
-#include "usbd_cdc_if.h"
+//#include "usbd_cdc_if.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -71,6 +69,26 @@ uint8_t usb_print(char * buff, uint16_t len);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+
+uint32_t tim2_cnt=0;
+volatile uint32_t fut=0;
+void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim)
+{
+
+	if (htim->Instance == TIM2)
+	{
+//		HAL_GPIO_TogglePin(LD3_GPIO_Port, LD3_Pin);
+		fut++;
+
+	}
+
+//	tim2_cnt=__HAL_TIM_GET_COUNTER(htim);
+//	HAL_GPIO_TogglePin(LD3_GPIO_Port, LD3_Pin);
+//	tim2_cnt=htim2.Instance->CNT;
+}
+
+
+
 int _write(int file, char *ptr, int len)
 {
 
@@ -114,30 +132,36 @@ int main(void)
   MX_CRC_Init();
   MX_TIM7_Init();
   MX_SPI2_Init();
-//  MX_RTC_Init();
-  MX_USB_DEVICE_Init();
+  MX_TIM2_Init();
   MX_TouchGFX_Init();
   /* USER CODE BEGIN 2 */
 
+  HAL_TIM_Encoder_Start(&htim2, TIM_CHANNEL_ALL);
 
-//HAL_Delay(20000);
-  printf("\x1b[2J\x1b[;H");
-  printf("*-------------------------*\r\n");
-  printf("* Touch GFX! *\r\n");
-  printf("*-------------------------*\r\n");
+
+
+
+  //HAL_Delay(20000);
+//  printf("\x1b[2J\x1b[;H");
+//  printf("*-------------------------*\r\n");
+//  printf("* Touch GFX! *\r\n");
+//  printf("*-------------------------*\r\n");
   HAL_TIM_Base_Start_IT(&htim7);
   lcdBacklightOn();
   lcdInit();
+  htim2.Instance->CNT=0;
 
-    char futai[]="huinea pe usb";
+//    char futai[]="huinea pe usb";
 //    CDC_Transmit_FS(futai,13);
-    usb_print(futai,13);
+//    usb_print(futai,13);
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+//	  tim2_cnt=__HAL_TIM_GET_COUNTER(&htim2);
+	  tim2_cnt=htim2.Instance->CNT/4;
     /* USER CODE END WHILE */
 
   MX_TouchGFX_Process();
@@ -163,9 +187,8 @@ void SystemClock_Config(void)
   /** Initializes the RCC Oscillators according to the specified parameters
   * in the RCC_OscInitTypeDef structure.
   */
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE|RCC_OSCILLATORTYPE_LSE;
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
   RCC_OscInitStruct.HSEState = RCC_HSE_ON;
-  RCC_OscInitStruct.LSEState = RCC_LSE_ON;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
   RCC_OscInitStruct.PLL.PLLM = 4;
@@ -196,7 +219,7 @@ void SystemClock_Config(void)
 
 uint8_t usb_print(char * buff, uint16_t len)
 {
-	CDC_Transmit_FS((uint8_t *) buff, len);
+//	CDC_Transmit_FS((uint8_t *) buff, len);
 	return len;
 }
 
@@ -242,6 +265,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 	{
 		touchgfxSignalVSync();
 	}
+
 }
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)

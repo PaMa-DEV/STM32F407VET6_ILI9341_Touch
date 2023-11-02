@@ -19,8 +19,8 @@
           {
             "Type": "ToggleButton",
             "Name": "toggleButton1",
-            "X": 75,
-            "Y": 31,
+            "X": 15,
+            "Y": 10,
             "Width": 170,
             "Height": 60,
             "Pressed": "__generated\\alternate_theme_images_widgets_togglebutton_large_rounded_text_off_normal.png",
@@ -30,8 +30,8 @@
           {
             "Type": "ButtonWithLabel",
             "Name": "buttonWithLabel1",
-            "X": 91,
-            "Y": 113,
+            "X": 22,
+            "Y": 78,
             "Width": 138,
             "Height": 36,
             "Pressed": "__generated\\alternate_theme_images_widgets_button_regular_height_36_small_round_pressed.png",
@@ -53,10 +53,10 @@
           {
             "Type": "TextArea",
             "Name": "textArea1",
-            "X": 66,
-            "Y": 166,
-            "Width": 189,
-            "Height": 50,
+            "X": 91,
+            "Y": 182,
+            "Width": 138,
+            "Height": 47,
             "TextId": "__SingleUse_F6SG",
             "TextRotation": "0",
             "Color": {
@@ -64,14 +64,47 @@
               "Green": 189,
               "Blue": 23
             },
+            "AutoSize": true,
             "Wildcard1": {
               "TextId": "__SingleUse_CFLB",
               "UseBuffer": true,
-              "BufferSize": 5
+              "BufferSize": 7
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "textArea2",
+            "X": 25,
+            "Y": 142,
+            "Width": 68,
+            "Height": 30,
+            "TextId": "__SingleUse_G4F8",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 247,
+              "Green": 255,
+              "Blue": 250
+            },
+            "AutoSize": true,
+            "Wildcard1": {
+              "UseBuffer": true,
+              "BufferSize": 4
             }
           }
         ],
-        "Interactions": []
+        "Interactions": [
+          {
+            "InteractionName": "Interaction1",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "buttonWithLabel1"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "Button1Action"
+            }
+          }
+        ]
       }
     ],
     "CustomContainerDefinitions": [],

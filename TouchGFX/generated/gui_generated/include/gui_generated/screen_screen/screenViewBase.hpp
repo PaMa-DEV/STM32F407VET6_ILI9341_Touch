@@ -19,6 +19,14 @@ public:
     virtual ~screenViewBase();
     virtual void setupScreen();
 
+    /*
+     * Virtual Action Handlers
+     */
+    virtual void Button1Action()
+    {
+        // Override and implement this function in screen
+    }
+
 protected:
     FrontendApplication& application() {
         return *static_cast<FrontendApplication*>(touchgfx::Application::getInstance());
@@ -32,12 +40,15 @@ protected:
     touchgfx::ToggleButton toggleButton1;
     touchgfx::ButtonWithLabel buttonWithLabel1;
     touchgfx::TextAreaWithOneWildcard textArea1;
+    touchgfx::TextAreaWithOneWildcard textArea2;
 
     /*
      * Wildcard Buffers
      */
-    static const uint16_t TEXTAREA1_SIZE = 5;
+    static const uint16_t TEXTAREA1_SIZE = 7;
     touchgfx::Unicode::UnicodeChar textArea1Buffer[TEXTAREA1_SIZE];
+    static const uint16_t TEXTAREA2_SIZE = 4;
+    touchgfx::Unicode::UnicodeChar textArea2Buffer[TEXTAREA2_SIZE];
 
 private:
 
@@ -46,6 +57,16 @@ private:
      */
     static const uint32_t CANVAS_BUFFER_SIZE = 4800;
     uint8_t canvasBuffer[CANVAS_BUFFER_SIZE];
+
+    /*
+     * Callback Declarations
+     */
+    touchgfx::Callback<screenViewBase, const touchgfx::AbstractButton&> buttonCallback;
+
+    /*
+     * Callback Handler Declarations
+     */
+    void buttonCallbackHandler(const touchgfx::AbstractButton& src);
 
 };
 

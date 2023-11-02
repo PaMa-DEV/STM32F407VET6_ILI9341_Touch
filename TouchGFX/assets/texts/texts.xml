@@ -6,10 +6,13 @@
   <Texts>
     <TextGroup Id="Group1" />
     <TextGroup Id="Unsorted">
+      <Text Id="__SingleUse_G4F8" Alignment="Center" TypographyId="Enc_Tpg">
+        <Translation Language="GB">Enc:&lt;value&gt;</Translation>
+      </Text>
       <Text Id="__SingleUse_CFLB" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">0</Translation>
       </Text>
-      <Text Id="__SingleUse_F6SG" Alignment="Left" TypographyId="Typography_00">
+      <Text Id="__SingleUse_F6SG" Alignment="Center" TypographyId="Typography_00">
         <Translation Language="GB">X= &lt;value&gt; $</Translation>
       </Text>
       <Text Id="__SingleUse_CZXO" Alignment="Center" TypographyId="Default">
@@ -22,5 +25,6 @@
     <Typography Id="Large" Font="verdanab.ttf" Size="40" Bpp="4" Direction="LTR" FallbackCharacter="?" />
     <Typography Id="Small" Font="verdana.ttf" Size="10" Bpp="4" Direction="LTR" FallbackCharacter="?" />
     <Typography Id="Typography_00" Font="verdana.ttf" Size="40" Bpp="4" Direction="LTR" FallbackCharacter="?" WildcardCharacterRanges="0-9" />
+    <Typography Id="Enc_Tpg" Font="verdana.ttf" Size="30" Bpp="4" Direction="LTR" FallbackCharacter="?" WildcardCharacterRanges="0x20-0x7E" />
   </Typographies>
 </TextDatabase>

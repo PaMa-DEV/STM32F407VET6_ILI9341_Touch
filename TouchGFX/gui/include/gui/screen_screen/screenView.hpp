@@ -12,6 +12,7 @@ public:
     virtual void setupScreen();
     virtual void tearDownScreen();
     virtual void handleTickEvent();
+    virtual void Button1Action();
 protected:
 
     uint16_t count=0;
