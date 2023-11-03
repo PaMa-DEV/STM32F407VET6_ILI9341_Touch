@@ -6,6 +6,9 @@
   <Texts>
     <TextGroup Id="Group1" />
     <TextGroup Id="Unsorted">
+      <Text Id="__SingleUse_7KIN" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">0</Translation>
+      </Text>
       <Text Id="__SingleUse_G4F8" Alignment="Center" TypographyId="Enc_Tpg">
         <Translation Language="GB">Enc:&lt;value&gt;</Translation>
       </Text>
@@ -16,7 +19,7 @@
         <Translation Language="GB">X= &lt;value&gt; $</Translation>
       </Text>
       <Text Id="__SingleUse_CZXO" Alignment="Center" TypographyId="Default">
-        <Translation Language="GB">nu apasa</Translation>
+        <Translation Language="GB">Toggle LED3</Translation>
       </Text>
     </TextGroup>
   </Texts>

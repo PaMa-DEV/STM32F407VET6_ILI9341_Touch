@@ -30,8 +30,8 @@
           {
             "Type": "ButtonWithLabel",
             "Name": "buttonWithLabel1",
-            "X": 22,
-            "Y": 78,
+            "X": 25,
+            "Y": 84,
             "Width": 138,
             "Height": 36,
             "Pressed": "__generated\\alternate_theme_images_widgets_button_regular_height_36_small_round_pressed.png",
@@ -76,7 +76,7 @@
             "Name": "textArea2",
             "X": 25,
             "Y": 142,
-            "Width": 68,
+            "Width": 87,
             "Height": 30,
             "TextId": "__SingleUse_G4F8",
             "TextRotation": "0",
@@ -87,6 +87,7 @@
             },
             "AutoSize": true,
             "Wildcard1": {
+              "TextId": "__SingleUse_7KIN",
               "UseBuffer": true,
               "BufferSize": 4
             }

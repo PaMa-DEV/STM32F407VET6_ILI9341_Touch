@@ -22,6 +22,7 @@
 #include "spi.h"
 #include "tim.h"
 #include "usart.h"
+#include "usb_device.h"
 #include "gpio.h"
 #include "fsmc.h"
 #include "app_touchgfx.h"
@@ -31,12 +32,12 @@
 #include <stdio.h>
 #include "ili9341_simple.h"
 #include "TouchGFX_DataTransfer.h"
-//#include "usbd_cdc_if.h"
+#include "usbd_cdc_if.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
-
+extern uint8_t CDC_Transmit_FS(uint8_t* Buf, uint16_t Len);
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -133,6 +134,7 @@ int main(void)
   MX_TIM7_Init();
   MX_SPI2_Init();
   MX_TIM2_Init();
+  MX_USB_DEVICE_Init();
   MX_TouchGFX_Init();
   /* USER CODE BEGIN 2 */
 
@@ -151,17 +153,27 @@ int main(void)
   lcdInit();
   htim2.Instance->CNT=0;
 
-//    char futai[]="huinea pe usb";
-//    CDC_Transmit_FS(futai,13);
+  uint8_t futai[13];
+//    CDC_Transmit_FS(futai, 13u);
 //    usb_print(futai,13);
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+    static uint16_t tick=0;
   while (1)
   {
 //	  tim2_cnt=__HAL_TIM_GET_COUNTER(&htim2);
 	  tim2_cnt=htim2.Instance->CNT/4;
+
+	  if (tick++ >= 1000 )
+	  	{
+//		  usb_print(futai,13);
+		  sprintf(futai, "%d\n\r", tick);
+//		  CDC_Transmit_FS(futai, 13u);
+		  tick=0;
+	  	}
+
     /* USER CODE END WHILE */
 
   MX_TouchGFX_Process();

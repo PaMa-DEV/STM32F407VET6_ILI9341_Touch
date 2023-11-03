@@ -50,6 +50,8 @@ protected:
     static const uint16_t TEXTAREA2_SIZE = 4;
     touchgfx::Unicode::UnicodeChar textArea2Buffer[TEXTAREA2_SIZE];
 
+    uint8_t usb_buff[10]={0};
+
 private:
 
     /*

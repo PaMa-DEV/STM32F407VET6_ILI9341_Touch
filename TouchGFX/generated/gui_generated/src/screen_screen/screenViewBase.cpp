@@ -24,7 +24,7 @@ screenViewBase::screenViewBase() :
     toggleButton1.setBitmaps(touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_TOGGLEBUTTON_LARGE_ROUNDED_TEXT_ON_ACTION_ID), touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_TOGGLEBUTTON_LARGE_ROUNDED_TEXT_OFF_NORMAL_ID));
     add(toggleButton1);
 
-    buttonWithLabel1.setXY(22, 78);
+    buttonWithLabel1.setXY(25, 84);
     buttonWithLabel1.setBitmaps(touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_36_SMALL_ROUND_ACTION_ID), touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_36_SMALL_ROUND_PRESSED_ID));
     buttonWithLabel1.setLabelText(touchgfx::TypedText(T___SINGLEUSE_CZXO));
     buttonWithLabel1.setLabelColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
@@ -44,7 +44,7 @@ screenViewBase::screenViewBase() :
     textArea2.setXY(25, 142);
     textArea2.setColor(touchgfx::Color::getColorFromRGB(247, 255, 250));
     textArea2.setLinespacing(0);
-    textArea2Buffer[0] = 0;
+    Unicode::snprintf(textArea2Buffer, TEXTAREA2_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_7KIN).getText());
     textArea2.setWildcard(textArea2Buffer);
     textArea2.resizeToCurrentText();
     textArea2.setTypedText(touchgfx::TypedText(T___SINGLEUSE_G4F8));
